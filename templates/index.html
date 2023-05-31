@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<script src="{{url_for('static', filename='variant.js')}}"></script>
+<title>Калькулятор объемов геометрических фигур</title>
+</head>
+<body onload=toggleFields()>
+<h2 style="text-align:center;">Калькулятор объемов геометрических фигур</h2>
+<form class="border border-primary" style="width:20%; padding: 5px; margin: 0 auto;" action="/calculate_volume" method="POST">
+<select class="form-control" name="shape" onchange="toggleFields()">
+<option value="cube">Куб</option>
+<option value="sphere">Сфера</option>
+<option value="cylinder">Цилиндр</option>
+</select>
+<br/><br/>
+<div id="radiusField">
+Радиус: <input class="form-control" type="text" name="radius"><br/><br/>
+</div>
+<div id="heightField">
+Высота: <input class="form-control" type="text" name="height"><br/><br/>
+</div>
+<div id="sideField">
+Сторона: <input class="form-control" type="text" name="side"><br/><br/>
+</div>
+<div id="precisionField">
+Точность: <input class="form-control" type="text" name="precision"><br/><br/>
+</div>
+<input class="btn btn-success" type="submit" value="Вычислить">
+</form>
+<div class="border border-dark" style="width: 10%; padding: 10px; margin-left: auto; margin-right: auto; margin-top: 10px">
+<p style="text-align:center;">Объем: {{ volume }}</p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>
